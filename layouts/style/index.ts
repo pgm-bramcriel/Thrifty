@@ -3,13 +3,16 @@ import { color } from "../../styles/variables"
 
 const GlobalStyling = styled.div`
   * {
-    padding: 0;
-    margin: 0;
     list-style: none;
     box-sizing: border-box;
     text-decoration: none;
     word-break: break-word;
   };
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+  }
 
   .main-container {
     max-width: 90rem;
@@ -18,7 +21,7 @@ const GlobalStyling = styled.div`
   };
 
   .nav-scroll {
-    box-shadow: 7px 7px 15px 3px #DEDEDE;
+    box-shadow: 13px 3px 15px 1px white;
   }
 `
 

@@ -8,6 +8,7 @@ const NavStyle = styled.nav`
   top: 0;
   padding: 0.5rem 0;
   width: 100%;
+  z-index: 9999;
 `
 const NavInner = styled.div`
   display: flex;

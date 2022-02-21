@@ -3,7 +3,7 @@ import styled from "styled-components";
 const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 2rem;
 
     @media only screen and (max-width: 750px) {
         align-items: flex-start;

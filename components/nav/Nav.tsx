@@ -18,7 +18,7 @@ const Nav = () => {
   return (
     <NavStyle className={`${offset > 0 ? "nav-scroll" : ""}`}>
       <NavInner className='main-container'>
-        <Logo name='Thrifty'/>
+        <Logo/>
         <ShoppingButton>
           <ShoppingBagIcon />
         </ShoppingButton>
