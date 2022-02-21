@@ -10,6 +10,7 @@ export const transition = {
 }
 
 export const radius = {
+  small: '5px',
   main: '10px'
 }
 
@@ -20,4 +21,8 @@ export const fontSize = {
 export const media = {
   small: '25rem',
   medium: '47.5rem'
+}
+
+export const shadow = {
+  main: '0px 3px 6px rgba(0, 0, 0, 0.16)',
 }

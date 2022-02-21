@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { color } from "../../styles/variables"
+import { color, shadow } from "../../styles/variables"
 
 const GlobalStyling = styled.div`
   * {
@@ -25,7 +25,7 @@ const GlobalStyling = styled.div`
   };
 
   .nav-scroll {
-    box-shadow: 13px 3px 15px 1px white;
+    box-shadow: ${shadow.main};
   }
 `
 
