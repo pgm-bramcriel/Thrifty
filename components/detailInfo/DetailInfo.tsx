@@ -1,5 +1,5 @@
 import React from 'react'
-import { CtaButton } from '../button/styles'
+import MainButton from '../button/MainButton'
 import { DetailInfoContainer, Price, Title, DetailInfoInner} from './style'
 
 const DetailInfo = () => {
@@ -9,7 +9,7 @@ const DetailInfo = () => {
         <Title>Thrift glasses and keyboard</Title> 
         <Price>€351</Price>
         <span>Good condition, pretty new, this is a description</span>
-        <CtaButton>Add to cart</CtaButton>
+        <MainButton content='Add to cart' />
       </DetailInfoInner>
     </DetailInfoContainer>
   )

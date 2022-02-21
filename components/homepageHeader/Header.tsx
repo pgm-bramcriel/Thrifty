@@ -13,6 +13,7 @@ import {
 import { CtaButton } from "../button/styles";
 
 import productImage from "../../assets/header_image.jpg";
+import MainButton from "../button/MainButton";
 
 const homepageHeader = () => {
   return (
@@ -31,7 +32,7 @@ const homepageHeader = () => {
                         <Image src={productImage} alt="Product image" layout="fill" objectFit="cover"></Image>
                     </ProductImageContainerMobile>
                     
-                    <CtaButton>Shop</CtaButton>
+                    <MainButton content='Shop   '/>
                 </CtaContainer>
             </ProductContainer>
         </HeaderContainer>
