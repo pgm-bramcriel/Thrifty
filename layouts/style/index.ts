@@ -13,6 +13,13 @@ const GlobalStyling = styled.div`
   }
 `
 
+const Container = styled.div`
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+`;
+
 export {
-  GlobalStyling
+  GlobalStyling,
+  Container
 }

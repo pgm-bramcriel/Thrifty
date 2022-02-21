@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { color } from "../../../styles/variables";
 
-const NavStyle = styled.nav`
-  background-color: black;
+const LogoStyle = styled.div`
+  font-family: 'sans-serif';
   color: ${color.white};
+  font-weight: bold;
+  font-size: 2rem;
 `
 
 export {
-  NavStyle
+  LogoStyle
 }
