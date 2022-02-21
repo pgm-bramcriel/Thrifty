@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
-    height: 100vh;
     display: flex;
     align-items: center;
+    margin-top: 4rem;
 
     @media only screen and (max-width: 750px) {
         align-items: flex-start;

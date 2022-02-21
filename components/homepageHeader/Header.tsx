@@ -19,7 +19,7 @@ const homepageHeader = () => {
     <div>
         <HeaderContainer>
             <Background></Background>
-            <ProductContainer>
+            <ProductContainer className="main-container">
                 <ProductImageContainerDesktop>
                     <Image src={productImage} alt="Product image" layout="fill" objectFit="cover"></Image>
                 </ProductImageContainerDesktop>
