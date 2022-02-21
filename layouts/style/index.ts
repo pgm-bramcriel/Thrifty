@@ -9,8 +9,6 @@ const GlobalStyling = styled.div`
     box-sizing: border-box;
     text-decoration: none;
     word-break: break-word;
-    font-weight: inherit;
-    font-size: inherit;
   };
 
   .main-container {
@@ -18,8 +16,18 @@ const GlobalStyling = styled.div`
     margin: 0 auto;
     padding: 0 1rem;
   };
+
+  .nav-scroll {
+    box-shadow: 7px 7px 15px 3px #DEDEDE;
+  }
+`
+
+const MainStyling = styled.main`
+  padding-top: 4rem;
+  min-height: 100vh;
 `
 
 export {
-  GlobalStyling
+  GlobalStyling,
+  MainStyling
 }

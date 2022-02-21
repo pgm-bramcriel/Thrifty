@@ -1,15 +1,15 @@
 import React from 'react'
 import Footer from '../components/footer/Footer'
 import Nav from '../components/nav/Nav'
-import { GlobalStyling } from './style'
+import { GlobalStyling, MainStyling } from './style'
 
 const BaseLayout:React.FC = ({children}) => {
   return (
     <GlobalStyling>    
     <Nav/>
-    <main>
+    <MainStyling>
       {children}
-    </main>
+    </MainStyling>
     <Footer/>
     </GlobalStyling>
   )
