@@ -4,3 +4,7 @@ export const color = {
   accentColor: '#FFE5DE',
   grey: '#000008F'
 }
+
+export const transition = {
+  main: '0.2s ease'
+}
