@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { color } from "../../styles/variables"
 
 const GlobalStyling = styled.div`
   * {
@@ -8,18 +9,25 @@ const GlobalStyling = styled.div`
     box-sizing: border-box;
     text-decoration: none;
     word-break: break-word;
-    font-weight: inherit;
-    font-size: inherit;
+  };
+
+  .main-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  };
+
+  .nav-scroll {
+    box-shadow: 7px 7px 15px 3px #DEDEDE;
   }
 `
 
-const Container = styled.div`
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
+const MainStyling = styled.main`
+  padding-top: 4rem;
+  min-height: 100vh;
+`
 
 export {
   GlobalStyling,
-  Container
+  MainStyling
 }
