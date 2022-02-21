@@ -9,6 +9,10 @@ const GlobalStyling = styled.div`
     word-break: break-word;
   };
 
+  h2  {
+    font-family: 'Unna';
+  }
+
   ul {
     padding-left: 0;
     margin: 0;
@@ -28,6 +32,7 @@ const GlobalStyling = styled.div`
 const MainStyling = styled.main`
   padding-top: 4rem;
   min-height: 100vh;
+  margin-top: 3rem;
 `
 
 export {
