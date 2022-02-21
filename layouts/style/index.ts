@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { color } from "../../styles/variables"
 
 const GlobalStyling = styled.div`
   * {
@@ -10,16 +11,15 @@ const GlobalStyling = styled.div`
     word-break: break-word;
     font-weight: inherit;
     font-size: inherit;
-  }
+  };
+
+  .main-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  };
 `
 
-const Container = styled.div`
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
-
 export {
-  GlobalStyling,
-  Container
+  GlobalStyling
 }
