@@ -19,7 +19,7 @@ const DetailInner = styled.div`
 const Background = styled.div`
   position: absolute;
   left: 0;
-  height: 65vh;
+  height: 55vh;
 
   background-color: ${color.accentColor};
   width: 100%;
