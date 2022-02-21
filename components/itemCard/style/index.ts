@@ -9,6 +9,8 @@ const ItemContainer = styled.div`
     position: relative;
     z-index: -1;
     margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
     @media only screen and (max-width: 1050px) {
         margin-left: 1rem;

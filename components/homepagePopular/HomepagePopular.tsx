@@ -7,7 +7,7 @@ import {
     MainWrapper, 
     PopularSection, 
     SectionTitle,  
-} from './styles'
+} from './style'
 
 const HomepagePopular = () => {
   return (
