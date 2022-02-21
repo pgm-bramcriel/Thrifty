@@ -40,7 +40,18 @@ const DetailInfoInner = styled.div`
     color: ${color.grey};
     font-size: 1.5rem;
     font-family: 'Unna';
-    padding-bottom: 3rem;
+
+    @media (min-width: ${media.medium}) {
+      padding-bottom: 2rem;
+    }
+  }
+`
+
+const DesktopButtonContainer = styled.div`
+  display: none;
+
+  @media (min-width: ${media.medium}) {
+    display: block;
   }
 `
 
@@ -48,5 +59,6 @@ export {
   DetailInfoContainer,
   Price,
   Title,
-  DetailInfoInner
+  DetailInfoInner,
+  DesktopButtonContainer
 }
