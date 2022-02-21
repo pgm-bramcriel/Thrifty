@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { fontSize } from "../../../styles/variables";
 
 const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 2rem;
 
     @media only screen and (max-width: 750px) {
         align-items: flex-start;
@@ -96,12 +96,12 @@ const CtaContainer = styled.div`
     }
 `;
 
-const HeaderTitle = styled.h1`
+const HeaderTitle = styled.h2`
     color: black;
-    font-weight: bold;
+    font-weight: normal;
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: ${fontSize.heading};
     margin-bottom: 3rem;
     width: 75%;
 

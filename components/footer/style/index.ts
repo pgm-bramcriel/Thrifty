@@ -5,6 +5,7 @@ const FooterStyle = styled.footer`
   color: black;
   background-color: ${color.accentColor};
   padding: 1rem 0;
+  margin-top: 4rem;
 
   p {
     margin: 0;
