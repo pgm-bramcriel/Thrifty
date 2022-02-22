@@ -3,6 +3,8 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 import Logo from '../logo/Logo'
 import { NavInner, NavStyle, ShoppingButton } from './style'
+import { BasketContainer } from '../basket/style';
+import Basket from '../basket/Basket';
 
 const Nav = () => {
   const [offset, setOffset] = useState(0);
@@ -22,6 +24,7 @@ const Nav = () => {
         <ShoppingButton>
           <ShoppingBagIcon />
         </ShoppingButton>
+        <Basket></Basket>
       </NavInner>
     </NavStyle>
   )
