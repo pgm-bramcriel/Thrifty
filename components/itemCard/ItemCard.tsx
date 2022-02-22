@@ -1,7 +1,6 @@
 import React from 'react'
 import { ContentContainer, ItemContainer, Label, LabelContainer, ProductInfoContainer } from './style'
 import Image from "next/image";
-import productImage from "../../assets/header_image.jpg";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 
 interface ICardProps {
@@ -9,13 +8,17 @@ interface ICardProps {
     price: number;
     description: string;
     isHot: boolean;
+    image: string;
 }
 
 const ItemCard: React.FC<ICardProps> = (props) => {
+
+    console.log(props.image);
+
   return (
     <div>
         <ItemContainer>
-            <Image src={productImage} alt="Product image" layout="fill" objectFit="cover"></Image>
+            <Image src={props.image} alt={props.title} layout="fill" objectFit="cover"></Image>
 
             <ContentContainer>
                 <LabelContainer>
