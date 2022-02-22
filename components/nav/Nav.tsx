@@ -14,7 +14,6 @@ const Nav = () => {
       return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  console.log(offset);
   return (
     <NavStyle className={`${offset > 0 ? "nav-scroll" : ""}`}>
       <NavInner className='main-container'>

@@ -10,6 +10,10 @@ const FooterStyle = styled.footer`
   p {
     margin: 0;
   }
+
+  a {
+    color: black;
+  }
 `
 const FooterSocials = styled.ul`
   display: flex;
