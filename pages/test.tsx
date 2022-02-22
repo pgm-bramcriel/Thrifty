@@ -1,12 +1,11 @@
 import React from 'react'
-import Footer from '../components/footer/Footer'
-import Nav from '../components/nav/Nav'
 import BaseLayout from '../layouts/BaseLayout'
+import Weather from '../components/weather/Weather'
 
 const test = () => {
   return (
     <BaseLayout>
-      <div>Test</div>
+      <Weather/>
     </BaseLayout>
   )
 }
