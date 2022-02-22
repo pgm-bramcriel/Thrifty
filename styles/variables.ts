@@ -21,7 +21,8 @@ export const fontSize = {
 
 export const media = {
   small: '25rem',
-  medium: '47.5rem'
+  medium: '47.5rem',
+  large: '60rem'
 }
 
 export const shadow = {

@@ -9,7 +9,7 @@ const DetailImageContainer = styled.div`
   width: 100%;
 
   @media (min-width: ${media.medium}) {
-    height: 42rem;
+    height: 30rem;
   }
 `
 

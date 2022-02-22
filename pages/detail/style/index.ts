@@ -27,7 +27,7 @@ const Background = styled.div`
 
   @media (min-width: ${media.medium}) {
     width: 45%;
-    height: 80vh;
+    height: 65vh;
   }
 `
 

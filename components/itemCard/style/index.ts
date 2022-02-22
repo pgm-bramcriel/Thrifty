@@ -1,19 +1,18 @@
 import styled from "styled-components";
-import { color } from "../../../styles/variables";
+import { color, media, transition } from "../../../styles/variables";
 
-const ItemContainer = styled.div`
-    width: 20rem;
+const ItemContainer = styled.section`
+    width: 18rem;
+    max-width: 100%;
     height: 25rem;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
     z-index: -1;
-    margin-right: 1rem;
-    margin-top: 1rem;
     margin-bottom: 1rem;
 
-    @media only screen and (max-width: 1050px) {
-        margin-left: 1rem;
+    @media (min-width: ${media.large}) {
+        width: 100%;
     }
 `;
 
@@ -25,6 +24,8 @@ const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: linear-gradient(360deg, hsla(0, 0%, 0%, 0.60) 0%, hsla(0, 0%, 0%, 0) 100%);
+    transition: ${transition.main};
 `;
 
 const LabelContainer = styled.div`
@@ -49,8 +50,29 @@ const ProductInfoContainer = styled.div`
     color: ${color.white};
     text-shadow: 2px 2px 25px #000;
 
+    p {
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 0.3rem;
+    }
+
     p:nth-child(3) {
+        font-size: 1rem;
         font-weight: normal;
+        margin-bottom: 0.8rem;
+        margin-top: 0.5rem;
+    }
+`;
+
+const CardContainer = styled.div`
+    img {
+        transition: ${transition.main};
+    }
+    
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
     }
 `;
 
@@ -59,5 +81,6 @@ export {
     LabelContainer,
     ProductInfoContainer, 
     Label, 
-    ContentContainer
+    ContentContainer,
+    CardContainer
 };
