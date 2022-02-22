@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { color } from "../../../styles/variables";
+import { color, media } from "../../../styles/variables";
 
 const PopularSection = styled.section`
-    height: 50rem;
     width: 100%;
     margin-top: 5rem;
+    margin-bottom: 10rem;
 `;
 
 const Background = styled.div`
     width: 50%;
-    height: 100%;
+    height: 70%;
     background-color: ${color.accentColor};
     z-index: -1;
     position: absolute;
@@ -19,15 +19,9 @@ const Background = styled.div`
     }
 `;
 
-const MainWrapper = styled.div`
-    width: 100%;
-`;
-
 const ContentContainer = styled.div`
     width: 100%;
     height: 100%;
-    padding-left: 6rem;
-    padding-right: 6rem;
 
     @media only screen and (max-width: 1200px) {
         padding-left: 0;
@@ -35,31 +29,22 @@ const ContentContainer = styled.div`
     }
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h3`
     padding-top: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: normal;
 `;
 
 const ItemContainer = styled.div`
+    grid-gap: 1rem;
+    overflow-x: scroll;
     display: flex;
-    justify-content: space-between;
-    margin-left: 10rem;
-    margin-right: 10rem;
 
-    @media only screen and (max-width: 1300px) {
-        margin-left: 7rem;
-        margin-right: 7rem;
-    }
-
-    @media only screen and (max-width: 1200px) {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    @media only screen and (max-width: 1050px) {
-        margin-left: 0;
-        margin-right: 0;
-        overflow-x: scroll;
+    @media (min-width: ${media.large}) {
+        overflow: inherit;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 `;
 
@@ -69,5 +54,4 @@ export {
     ContentContainer,
     SectionTitle,
     ItemContainer,
-    MainWrapper,
 }

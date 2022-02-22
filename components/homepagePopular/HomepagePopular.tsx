@@ -4,7 +4,6 @@ import {
     Background, 
     ContentContainer, 
     ItemContainer, 
-    MainWrapper, 
     PopularSection, 
     SectionTitle,  
 } from './style'
@@ -14,35 +13,43 @@ const HomepagePopular = () => {
     <div>
         <PopularSection>
             <Background></Background>
+            <div className='secondary-container'>
+                <SectionTitle>Popular products</SectionTitle>
 
-            <MainWrapper className='main-container'>
-                <ContentContainer>
-                    <SectionTitle>Popular products</SectionTitle>
-                </ContentContainer>
-            </MainWrapper>
+                <ItemContainer>
+                    <ItemCard 
+                        title="Product 1"
+                        price={351}
+                        description="This is a description of product 1"
+                        isHot={true}
+                        id={1}
+                    ></ItemCard>
 
-            <ItemContainer>
-                <ItemCard 
-                    title="Product 1"
-                    price={351}
-                    description="This is a description of product 1"
-                    isHot={true}
-                ></ItemCard>
+                    <ItemCard
+                        title="Product 2"
+                        price={351}
+                        description="This is a description of product 2"
+                        isHot={true}
+                        id={2}
+                    ></ItemCard>
 
-                <ItemCard
-                    title="Product 2"
-                     price={351}
-                    description="This is a description of product 2"
-                    isHot={false}
-                ></ItemCard>
+                    <ItemCard
+                        title="Product 3"
+                        price={351}
+                        description="This is a description of product 3"
+                        isHot={true}
+                        id={3}
+                    ></ItemCard>
 
-                <ItemCard
-                    title="Product 3"
-                    price={351}
-                    description="This is a description of product 3"
-                    isHot={true}
-                ></ItemCard>
-            </ItemContainer>
+                    <ItemCard
+                        title="Product 4"
+                        price={351}
+                        description="This is a description of product 4"
+                        isHot={true}
+                        id={4}
+                    ></ItemCard>
+                </ItemContainer>
+            </div>
         </PopularSection>
     </div>
   )

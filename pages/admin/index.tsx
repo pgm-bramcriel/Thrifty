@@ -34,7 +34,7 @@ const Admin = () => {
 
   return (
     <BaseLayout>
-      <FormContainer className="main-container">
+      <FormContainer className="secondary-container">
         <Formik
           initialValues={{
             title: '',
