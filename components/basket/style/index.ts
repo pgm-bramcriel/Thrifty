@@ -58,6 +58,7 @@ const BasketTitle = styled.h2`
     color: black;
     font-size: 1.4rem;
     margin: 0;
+    margin-bottom: 1rem;
 `;
 
 const BasketList = styled.ul`
@@ -81,6 +82,11 @@ const Total = styled.div`
     width: 100%;
 `;
 
+const Empty = styled.p`
+    font-size: 1.2rem;
+    color: black;
+`;
+
 export {
     BasketContainer,
     Background,
@@ -92,4 +98,5 @@ export {
     Container,
     ArrowAndContent,
     Arrow,
+    Empty,
 }
