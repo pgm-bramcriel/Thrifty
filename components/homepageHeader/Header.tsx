@@ -8,12 +8,14 @@ import {
     ProductImageContainerDesktop, 
     HeaderTitle, 
     CtaContainer, 
-    ProductImageContainerMobile 
+    ProductImageContainerMobile, 
+    ScrollLink
 } from "./styles";
 import { CtaButton } from "../button/styles";
 
 import productImage from "../../assets/header_image.jpg";
 import MainButton from "../button/MainButton";
+import Link from "next/dist/client/link";
 
 const homepageHeader = () => {
   return (
@@ -32,7 +34,11 @@ const homepageHeader = () => {
                         <Image src={productImage} alt="Product image" layout="fill" objectFit="cover"></Image>
                     </ProductImageContainerMobile>
                     
-                    <MainButton content='Shop   '/>
+                    <Link href="#shop">
+                        <ScrollLink>
+                            <MainButton content="Shop"/>
+                        </ScrollLink>
+                    </Link>
                 </CtaContainer>
             </ProductContainer>
         </HeaderContainer>
