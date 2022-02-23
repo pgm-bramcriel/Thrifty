@@ -9,27 +9,33 @@ import HomepageAllProducts from '../components/homepageAllProducts/HomepageAllPr
 import { IProduct } from './api/popularProducts'
 
 type PropsType = {
-  test: Array<IProduct>;
+  hotProducts: Array<IProduct>;
+  allProducts: Array<IProduct>;
   children?: any;
 }
 
-const Home: NextPage = (props: PropsType) => {
-  console.log(props);
-
+const Home: NextPage<PropsType> = (props: PropsType) => {
   return (
     <BaseLayout>
       <Header></Header>
-      <HomepagePopular products={props.test} ></HomepagePopular>
-      <HomepageAllProducts></HomepageAllProducts>
+      <HomepagePopular products={props.hotProducts} ></HomepagePopular>
+      <HomepageAllProducts products={props.allProducts}></HomepageAllProducts>
     </BaseLayout>
   )
 }
 
 export async function getServerSideProps() {
-  const products = await fetch("http://localhost:3000/api/popularProducts");
-  const test = await products.json();
+  const hotProductsRes = await fetch("http://localhost:3000/api/popularProducts");
+  const hotProducts = await hotProductsRes.json();
+
+  const allProductsRes = await fetch("http://localhost:3000/api/allProducts");
+  const allProducts = await allProductsRes.json();
+
   return {
-    props: {test}, // will be passed to the page component as props
+    props: {
+      hotProducts,
+      allProducts,
+    }, // will be passed to the page component as props
   }
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
+import { IProduct } from '../../pages/api/popularProducts'
 import ItemCard from '../itemCard/ItemCard'
 import { AllProductsSection, Background, ContentContainer, ItemContainer, SectionTitle } from './style'
 
-const HomepageAllProducts = () => {
+const HomepageAllProducts = (props: {products: Array<IProduct>}) => {
   return (
     <div>
         <AllProductsSection>
@@ -14,77 +15,19 @@ const HomepageAllProducts = () => {
                 </ContentContainer>
 
                 <ItemContainer>
-                    <ItemCard 
-                        title="Product 1"
-                        price={351}
-                        description="This is a description of product 1"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 2"
-                        price={351}
-                        description="This is a description of product 2"
-                        isHot={false}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
+                    {props.products.map(product => {
+                        return(
+                            <ItemCard 
+                                key={product.id}
+                                title={product.productName}
+                                price={product.price}
+                                description={product.description}
+                                isHot={product.isHot}
+                                image={product.image}
+                                id={product.id}
+                            ></ItemCard>
+                        );
+                    })}
                 </ItemContainer>
             </div>
         </AllProductsSection>
