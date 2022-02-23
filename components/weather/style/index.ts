@@ -8,6 +8,10 @@ const WeatherContainer = styled.div`
   figure {
     margin: 0;
   }
+
+  p {
+    margin: 0;
+  }
 `
 
 export {

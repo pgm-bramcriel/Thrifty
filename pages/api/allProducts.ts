@@ -33,4 +33,30 @@ export default async function handler(
 
         return res.json(formatedData);
     }
+    if (req.method === "POST") {
+        const body = req.body;
+        console.log(body);
+        base('Products').create([
+            {
+              "fields": {
+                "product_name": body.title,
+                "price": body.price,
+                "description": body.description,
+                "image": "https://storage.googleapis.com/koppen/54eee24b-8a51-4dd9-96ec-575dfe181b22.png",
+                "isHot": false,
+                "vote_count": 0
+              }
+            }
+          ], function(err: any, records: any) {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            records.forEach(function (record: any) {
+              console.log(record.getId());
+            });
+        });
+
+        return res.json(body);
+    }
 }

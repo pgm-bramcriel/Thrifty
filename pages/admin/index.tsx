@@ -43,8 +43,52 @@ const Admin = () => {
             image: ''
           }}
           validationSchema={yupSchemaAdd}
-          onSubmit={values => {
-            console.log(values);
+          onSubmit={ (values, actions) => {
+            console.log('test');
+            const title = values.title;
+            const price = values.price;
+            const description = values.description;
+
+            // const formData = new FormData();
+            // formData.append("image", values.image);
+            
+            // const x = fetch(
+            //   "https://europe-west1-kopopeenkop.cloudfunctions.net/upload_image",
+            //   {
+            //     mode: 'no-cors',
+            //     method: "POST",
+            //     headers: {
+            //       'Content-Type': 'application/json',
+            //     },
+            //     body: formData,
+            //   }
+            // )
+
+            // console.log(x);
+
+            fetch('http://localhost:3000/api/allProducts', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                'title' : title,
+                'price' : price,
+                'description' : description
+              })
+            })
+            
+            actions.resetForm({
+              values: {
+                title: '',
+                price: '',
+                description: '',
+                image: ''
+              }
+            })
+
+            alert('Your item is posted!');
+
           }}
         >
           {formik => (

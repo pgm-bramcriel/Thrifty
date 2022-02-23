@@ -6,7 +6,13 @@ const test = () => {
   return (
     <BaseLayout>
       <div className='main-container'>
-        <Weather />
+        <form method="POST" onSubmit={(e) => {
+          e.preventDefault();
+          console.log(e);
+        }}>
+          <input type='file'></input>
+          <button type='submit'>Submit</button>
+        </form>
       </div>
     </BaseLayout>
   )
