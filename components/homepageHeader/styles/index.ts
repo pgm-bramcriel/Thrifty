@@ -10,6 +10,12 @@ const HeaderContainer = styled.div`
     }
 `;
 
+const ScrollLink = styled.a`
+    width: 100%;
+    justify-content: center;
+    display: flex;
+`;
+
 const ProductContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -118,5 +124,6 @@ export {
     ProductImageContainerDesktop, 
     ProductImageContainerMobile, 
     CtaContainer, 
-    HeaderTitle
+    HeaderTitle,
+    ScrollLink
 };

@@ -4,8 +4,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { RatingStyling, Upvote, Downvote } from './style'
 
-const Rating = () => {
-  const [ rating, setRating ] = useState(0);
+const Rating = (props: any) => {
+  const [ rating, setRating ] = useState(props.rating);
 
   return (
     <RatingStyling>

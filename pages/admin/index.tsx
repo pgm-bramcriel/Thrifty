@@ -22,7 +22,7 @@ const Admin = () => {
   });
 
   const yupSchemaUpdate = Yup.object({
-    itemId: Yup.number()
+    itemId: Yup.string()
       .required('Item id is required'),
     newTitle: Yup.string()
       .max(60, 'Title cannot be over 60 characters long.'),
@@ -43,8 +43,33 @@ const Admin = () => {
             image: ''
           }}
           validationSchema={yupSchemaAdd}
-          onSubmit={values => {
-            console.log(values);
+          onSubmit={ (values, actions) => {
+            const title = values.title;
+            const price = values.price;
+            const description = values.description;
+
+            fetch('http://localhost:3000/api/allProducts', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                'title' : title,
+                'price' : price,
+                'description' : description
+              })
+            })
+            
+            actions.resetForm({
+              values: {
+                title: '',
+                price: '',
+                description: '',
+                image: ''
+              }
+            })
+
+            alert('Your item is posted!');
           }}
         >
           {formik => (
@@ -70,15 +95,43 @@ const Admin = () => {
             itemId: '',
           }}
           validationSchema={yupSchemaUpdate}
-          onSubmit={values => {
-            console.log(values);
+          onSubmit={(values: any, actions) => {
+              const newTitle = values.newTitle;
+              const newPrice = values.newPrice;
+              const newDescription = values.newDescription;
+              const itemId = values.itemId;
+
+              fetch('http://localhost:3000/api/allProducts', {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  'newTitle' : newTitle,
+                  'newPrice' : newPrice,
+                  'newDescription' : newDescription,
+                  'itemId' : itemId
+                })
+              })
+              
+              actions.resetForm({
+                values: {
+                  newTitle: '',
+                  newPrice: '',
+                  newDescription: '',
+                  newImage: '',
+                  itemId: '',
+                }
+              })
+
+              alert('Your item is updated!');
           }}
         >
           {formik => (
             <FormUpdate>
               <h2>Update an item</h2>
               <Form>
-                <TextField label="Item ID *" name="itemId" type="number" />
+                <TextField label="Item ID *" name="itemId" type="text" />
                 <TextField label="New title" name="newTitle" type="text" />
                 <TextField label="New price" name="newPrice" type="number" />
                 <TextField label="New description" name="newDescription" type="textarea" />
