@@ -24,9 +24,7 @@ const Weather = () => {
   return (
     <WeatherContainer className='main-container'>
       <p>{data.current.temp_c}°C</p>
-      <figure>
-        <Image src={`https:${data.current.condition.icon}`} alt='Icon' width={40} height={40}/>
-      </figure>
+      <Image src={`https:${data.current.condition.icon}`} alt='Icon' width={40} height={40}/>
     </WeatherContainer>
   )
 }

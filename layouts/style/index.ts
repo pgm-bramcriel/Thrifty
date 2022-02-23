@@ -18,7 +18,7 @@ const GlobalStyling = styled.div`
     padding-left: 0;
     margin: 0;
   }
-
+  
   .main-container {
     max-width: 90rem;
     margin: 0 auto;

@@ -23,6 +23,7 @@ const ShoppingButton = styled.button`
   outline: none;
   border: none;
   transition: 0.2s ease;
+  padding: 0;
 
   &:hover {
     color: ${color.mainRed};
