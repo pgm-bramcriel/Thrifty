@@ -8,6 +8,8 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-end;
     padding-right: 2rem;
+    right: 0;
+    display: none;
 
     @media (max-width: ${media.medium}) {
         margin-right: 1rem;
@@ -31,7 +33,6 @@ const Arrow = styled.div`
 
 const BasketContainer = styled.div`
     width: 25rem;
-    max-height: 30rem;
     background-color: white;
     border-radius: 10px 0 10px 10px;
     overflow: hidden;
@@ -62,8 +63,6 @@ const BasketTitle = styled.h2`
 const BasketList = styled.ul`
     list-style: none;
     width: 100%;
-    max-height: 15rem;
-    overflow-y: scroll;
     padding: 0;
     margin: 0;
 `;

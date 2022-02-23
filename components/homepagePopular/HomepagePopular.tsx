@@ -5,7 +5,6 @@ import {
     Background, 
     ContentContainer, 
     ItemContainer, 
-    MainWrapper, 
     PopularSection, 
     SectionTitle,  
 } from './style'
@@ -15,27 +14,23 @@ const HomepagePopular = (props: {products: Array<IProduct>}) => {
     <div>
         <PopularSection>
             <Background></Background>
-
-            <MainWrapper className='main-container'>
-                <ContentContainer>
-                    <SectionTitle>Popular products</SectionTitle>
-                </ContentContainer>
-            </MainWrapper>
-
-            <ItemContainer>
-                {props.products.map(product => {
-                    return(
-                        <ItemCard 
-                            key={product.id}
-                            title={product.productName}
-                            price={product.price}
-                            description={product.description}
-                            isHot={product.isHot}
-                            image={product.image}
-                        ></ItemCard>
-                    );
-                })}
-            </ItemContainer>
+            <div className='secondary-container'>
+                <SectionTitle>Popular products</SectionTitle>
+                <ItemContainer>
+                    {props.products.map(product => {
+                        return(
+                            <ItemCard 
+                                key={product.id}
+                                title={product.productName}
+                                price={product.price}
+                                description={product.description}
+                                isHot={product.isHot}
+                                image={product.image}
+                            ></ItemCard>
+                        );
+                    })}
+                </ItemContainer>
+            </div>
         </PopularSection>
     </div>
   )

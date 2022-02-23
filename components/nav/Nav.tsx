@@ -8,6 +8,7 @@ import Basket from '../basket/Basket';
 
 const Nav = () => {
   const [offset, setOffset] = useState(0);
+  const [isHidden, setIsHidden] = useState<boolean>(true)
 
   useEffect(() => {
       const onScroll = () => setOffset(window.pageYOffset);
@@ -20,10 +21,10 @@ const Nav = () => {
     <NavStyle className={`${offset > 0 ? "nav-scroll" : ""}`}>
       <NavInner className='main-container'>
         <Logo/>
-        <ShoppingButton>
+        <ShoppingButton onClick={() => setIsHidden(!isHidden)}>
           <ShoppingBagIcon />
         </ShoppingButton>
-        <Basket></Basket>
+        <Basket isHidden={isHidden}></Basket>
       </NavInner>
     </NavStyle>
   )

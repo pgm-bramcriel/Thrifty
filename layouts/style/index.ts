@@ -9,7 +9,8 @@ const GlobalStyling = styled.div`
     word-break: break-word;
   };
 
-  h2  {
+  h2,
+  h3 {
     font-family: 'Unna';
   }
 
@@ -24,14 +25,24 @@ const GlobalStyling = styled.div`
     padding: 0 1rem;
   };
 
+  .secondary-container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
   .nav-scroll {
     box-shadow: ${shadow.main};
+  }
+
+  .showBasket {
+    display: flex;
   }
 `
 
 const MainStyling = styled.main`
   padding-top: 4rem;
-  min-height: 100vh;
+  min-height: 80vh;
   margin-top: 3rem;
 `
 
