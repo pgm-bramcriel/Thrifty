@@ -5,24 +5,36 @@ import DetailImage from '../../components/detailImage/DetailImage';
 import DetailInfo from '../../components/detailInfo/DetailInfo';
 
 import BaseLayout from '../../layouts/BaseLayout';
+import { IProduct } from '../api/popularProducts';
 import { DetailContainer, Background, DetailInner } from './style';
 
-const Detail = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const Detail = (props: {product: any}) => {
+  const detailProduct = props.product[0];
   
-  console.log(id);
   return (
     <BaseLayout>
       <Background />
       <DetailContainer className='main-container'>
         <DetailInner>
-          <DetailImage/>
-          <DetailInfo/>
+          <DetailImage image={detailProduct.image}/>
+          <DetailInfo description={detailProduct.description} price={detailProduct.price} productName={detailProduct.productName}/>
         </DetailInner>
       </DetailContainer>
     </BaseLayout>
   )
+}
+
+export async function getServerSideProps(context: any) {
+  const { id } = context.params;
+  const getProductByIdRes = await fetch(`http://localhost:3000/api/getProductById/${id}`);
+  const product = await getProductByIdRes.json();
+
+  console.log(product);
+  return {
+    props: {
+      product,
+    }, // will be passed to the page component as props
+  }
 }
 
 export default Detail

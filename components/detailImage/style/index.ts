@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media, radius } from "../../../styles/variables";
+import { media, radius, shadow } from "../../../styles/variables";
 
 const DetailImageContainer = styled.div`
   height: 25rem;
@@ -7,6 +7,7 @@ const DetailImageContainer = styled.div`
   position: relative;
   border-radius: ${radius.main};
   width: 100%;
+  box-shadow: ${shadow.main};
 
   @media (min-width: ${media.medium}) {
     height: 30rem;

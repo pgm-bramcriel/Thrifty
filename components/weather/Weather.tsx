@@ -21,8 +21,6 @@ const Weather = () => {
   if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No profile data</p>
 
-  console.log(data);
-
   return (
     <WeatherContainer className='main-container'>
       <p>{data.current.temp_c}°C</p>

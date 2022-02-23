@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
-import productImage from "../../assets/header_image.jpg";
 import MainButton from '../button/MainButton';
 import Carrousel from '../carrousel/Carrousel';
 import Rating from '../rating/Rating';
 import { DetailImageContainer, MobileButtonContainer, LeftContainer, BottomImage } from './style';
 
-const DetailImage = () => {
+const DetailImage = (props: any) => {
   return (
     <>
     <MobileButtonContainer>
@@ -14,7 +13,7 @@ const DetailImage = () => {
     </MobileButtonContainer>
     <LeftContainer>
       <DetailImageContainer>
-        <Image src={productImage} alt='Product image' objectFit="cover" layout="fill"/>
+        <Image src={props.image} alt='Product image' objectFit="cover" layout="fill"/>
       </DetailImageContainer>
       <BottomImage>
         <Rating />
