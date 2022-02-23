@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
+import { WeatherContainer } from './style';
 
 const Weather = () => {
   const [data, setData]: any = useState()
@@ -22,7 +24,12 @@ const Weather = () => {
   console.log(data);
 
   return (
-    <div className='main-container'>Current temp: {data.current.temp_c} celcius</div>
+    <WeatherContainer className='main-container'>
+      <p>{data.current.temp_c}°C</p>
+      <figure>
+        <Image src={`https:${data.current.condition.icon}`} alt='Icon' width={40} height={40}/>
+      </figure>
+    </WeatherContainer>
   )
 }
 
