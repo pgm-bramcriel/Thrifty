@@ -75,7 +75,7 @@ export default async function handler(
         };
     });
 
-    const filteredData = formatedData.filter(data => data.id == body.itemId);
+    const filteredData = formatedData.filter((data: any) => data.id == body.itemId);
 
     base('Products').update([
       {
