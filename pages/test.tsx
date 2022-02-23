@@ -5,7 +5,9 @@ import Weather from '../components/weather/Weather'
 const test = () => {
   return (
     <BaseLayout>
-      <Weather/>
+      <div className='main-container'>
+        <Weather />
+      </div>
     </BaseLayout>
   )
 }

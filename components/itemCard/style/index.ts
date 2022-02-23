@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color, media, transition } from "../../../styles/variables";
+import { color, media, shadow, transition } from "../../../styles/variables";
 
 const ItemContainer = styled.section`
     width: 18rem;
@@ -10,6 +10,7 @@ const ItemContainer = styled.section`
     position: relative;
     z-index: -1;
     margin-bottom: 1rem;
+    box-shadow: ${shadow.main};
 
     @media (min-width: ${media.large}) {
         width: 100%;
