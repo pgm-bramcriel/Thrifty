@@ -6,7 +6,7 @@ import { AllProductsSection, Background, ContentContainer, ItemContainer, Sectio
 const HomepageAllProducts = (props: {products: Array<IProduct>}) => {
   return (
     <div>
-        <AllProductsSection>
+        <AllProductsSection id="shop">
             <Background></Background>
 
             <div className='secondary-container'>
