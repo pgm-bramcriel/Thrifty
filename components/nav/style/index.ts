@@ -34,8 +34,19 @@ const ShoppingButton = styled.button`
   }
 `
 
+const NavRightContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  p {
+    font-family: 'Nunito';
+  }
+`
+
 export {
   NavStyle,
   NavInner,
-  ShoppingButton
+  ShoppingButton,
+  NavRightContainer
 }
