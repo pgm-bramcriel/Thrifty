@@ -24,15 +24,11 @@ export default async function handler(
   if (req.method === "GET") {
     // Process a GET request
 
-    const hotProducts: Array<IProduct> = [];
-
     const response = await base('Products').select({
-      filterByFormula: "NOT({isHot} = 'false')",
-      maxRecords: 3,
+      filterByFormula: "{isHot}",
+      maxRecords: 4,
 
     }).all()
-
-    console.log(response);
 
     const formatedData = response.map((res:any) => {
       return {
@@ -47,7 +43,5 @@ export default async function handler(
 
     return res.json(formatedData);
 
-  } else if (req.method === "POST") {
-    // Process a POST request
   }
 }
