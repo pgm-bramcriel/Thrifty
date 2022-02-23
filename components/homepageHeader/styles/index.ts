@@ -12,6 +12,8 @@ const HeaderContainer = styled.div`
 
 const ScrollLink = styled.a`
     width: 100%;
+    justify-content: center;
+    display: flex;
 `;
 
 const ProductContainer = styled.div`
