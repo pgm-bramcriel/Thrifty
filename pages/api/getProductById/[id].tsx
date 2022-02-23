@@ -36,7 +36,7 @@ export default async function handler(
             };
         });
 
-        const filteredData = formatedData.filter(data => data.id == productId.id);
+        const filteredData = formatedData.filter((data: any) => data.id == productId.id);
 
 
         return res.json(filteredData);

@@ -6,7 +6,7 @@ import DetailInfo from '../../components/detailInfo/DetailInfo';
 
 import BaseLayout from '../../layouts/BaseLayout';
 import { IProduct } from '../api/popularProducts';
-import { DetailContainer, Background, DetailInner } from './style';
+import { DetailContainer, Background, DetailInner } from '../../components/pageStyles/detail/style';
 
 const Detail = (props: {product: any}) => {
   const detailProduct = props.product[0];
