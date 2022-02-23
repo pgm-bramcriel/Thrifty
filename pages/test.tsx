@@ -1,12 +1,19 @@
 import React from 'react'
-import Footer from '../components/footer/Footer'
-import Nav from '../components/nav/Nav'
 import BaseLayout from '../layouts/BaseLayout'
+import Weather from '../components/weather/Weather'
 
 const test = () => {
   return (
     <BaseLayout>
-      <div>Test</div>
+      <div className='main-container'>
+        <form method="POST" onSubmit={(e) => {
+          e.preventDefault();
+          console.log(e);
+        }}>
+          <input type='file'></input>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
     </BaseLayout>
   )
 }

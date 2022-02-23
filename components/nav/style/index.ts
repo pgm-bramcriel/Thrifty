@@ -8,11 +8,13 @@ const NavStyle = styled.nav`
   top: 0;
   padding: 0.5rem 0;
   width: 100%;
+  z-index: 9999;
 `
 const NavInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `
 
 const ShoppingButton = styled.button`
@@ -21,6 +23,7 @@ const ShoppingButton = styled.button`
   outline: none;
   border: none;
   transition: 0.2s ease;
+  padding: 0;
 
   &:hover {
     color: ${color.mainRed};
@@ -32,8 +35,19 @@ const ShoppingButton = styled.button`
   }
 `
 
+const NavRightContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  p {
+    font-family: 'Nunito';
+  }
+`
+
 export {
   NavStyle,
   NavInner,
-  ShoppingButton
+  ShoppingButton,
+  NavRightContainer
 }

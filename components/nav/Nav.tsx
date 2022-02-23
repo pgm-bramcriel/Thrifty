@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 import Logo from '../logo/Logo'
-import { NavInner, NavStyle, ShoppingButton } from './style'
+import { NavInner, NavStyle, ShoppingButton, NavRightContainer } from './style'
+import Basket from '../basket/Basket';
+import Weather from '../weather/Weather';
 
 const Nav = () => {
   const [offset, setOffset] = useState(0);
+  const [isHidden, setIsHidden] = useState<boolean>(true)
 
   useEffect(() => {
       const onScroll = () => setOffset(window.pageYOffset);
@@ -14,14 +17,17 @@ const Nav = () => {
       return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  console.log(offset);
   return (
     <NavStyle className={`${offset > 0 ? "nav-scroll" : ""}`}>
       <NavInner className='main-container'>
-        <Logo name='Thrifty'/>
-        <ShoppingButton>
-          <ShoppingBagIcon />
-        </ShoppingButton>
+        <Logo/>
+        <NavRightContainer>
+          <Weather />
+          <ShoppingButton onClick={() => setIsHidden(!isHidden)}>
+            <ShoppingBagIcon />
+          </ShoppingButton>
+        </NavRightContainer>
+        <Basket isHidden={isHidden}></Basket>
       </NavInner>
     </NavStyle>
   )
