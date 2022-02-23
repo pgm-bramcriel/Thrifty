@@ -10,7 +10,7 @@ interface ICardProps {
     description: string;
     isHot: boolean;
     image: string;
-    id: number;
+    id: string;
 }
 
 const ItemCard: React.FC<ICardProps> = (props) => {
@@ -22,7 +22,9 @@ const ItemCard: React.FC<ICardProps> = (props) => {
         <Link href={`detail/${props.id}`} passHref>
             <a>
                 <ItemContainer className='item-hover'>
-                    <Image src={props.image} alt={props.title} layout="fill" objectFit="cover"></Image>
+                    {
+                        props.image && <Image src={props.image} alt={props.title} layout="fill" objectFit="cover"></Image>
+                    }
                     <ContentContainer>
                         <LabelContainer>
                             { props.isHot &&

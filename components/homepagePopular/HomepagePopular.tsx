@@ -26,6 +26,7 @@ const HomepagePopular = (props: {products: Array<IProduct>}) => {
                                 description={product.description}
                                 isHot={product.isHot}
                                 image={product.image}
+                                id={product.id}
                             ></ItemCard>
                         );
                     })}
