@@ -1,4 +1,5 @@
 import React from 'react'
+import { IProduct } from '../../pages/api/popularProducts'
 import ItemCard from '../itemCard/ItemCard'
 import { 
     Background, 
@@ -8,46 +9,26 @@ import {
     SectionTitle,  
 } from './style'
 
-const HomepagePopular = () => {
+const HomepagePopular = (props: {products: Array<IProduct>}) => {
   return (
     <div>
         <PopularSection>
             <Background></Background>
             <div className='secondary-container'>
                 <SectionTitle>Popular products</SectionTitle>
-
                 <ItemContainer>
-                    <ItemCard 
-                        title="Product 1"
-                        price={351}
-                        description="This is a description of product 1"
-                        isHot={true}
-                        id={1}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 2"
-                        price={351}
-                        description="This is a description of product 2"
-                        isHot={true}
-                        id={2}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 3"
-                        price={351}
-                        description="This is a description of product 3"
-                        isHot={true}
-                        id={3}
-                    ></ItemCard>
-
-                    <ItemCard
-                        title="Product 4"
-                        price={351}
-                        description="This is a description of product 4"
-                        isHot={true}
-                        id={4}
-                    ></ItemCard>
+                    {props.products.map(product => {
+                        return(
+                            <ItemCard 
+                                key={product.id}
+                                title={product.productName}
+                                price={product.price}
+                                description={product.description}
+                                isHot={product.isHot}
+                                image={product.image}
+                            ></ItemCard>
+                        );
+                    })}
                 </ItemContainer>
             </div>
         </PopularSection>
