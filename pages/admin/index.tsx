@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import BaseLayout from '../../layouts/BaseLayout'
 import TextField from '../../components/TextField/TextField';
-import { FormAdd, FormContainer, FormUpdate } from './style';
+import { FormAdd, FormContainer, FormUpdate } from '../../components/pageStyles/admin/style';
 
 const Admin = () => {
   const yupSchemaAdd = Yup.object({
