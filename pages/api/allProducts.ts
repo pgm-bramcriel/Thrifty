@@ -27,7 +27,7 @@ export default async function handler(
                 description: res.fields.description,
                 image: res.fields.image,
                 price: res.fields.price,
-                isHot: !!res.fields.isHot,
+                isHot: !!res.fields.isHot
             };
         });
 
@@ -59,4 +59,43 @@ export default async function handler(
 
         return res.json(body);
     }
+  if (req.method === "PUT") {
+    const body = req.body;
+
+    const response = await base("Products").select({}).all();
+
+    const formatedData = response.map((res: any) => {
+        return {
+            id: res.id,
+            productName: res.fields.product_name,
+            description: res.fields.description,
+            image: res.fields.image,
+            price: res.fields.price,
+            isHot: !!res.fields.isHot,
+        };
+    });
+
+    const filteredData = formatedData.filter(data => data.id == body.itemId);
+
+    base('Products').update([
+      {
+        "id": body.itemId,
+        "fields": {
+          "product_name": body.newTitle ? body.newTitle : filteredData.productName,
+          "price": body.newPrice ? body.newPrice : filteredData.price,
+          "description": body.newDescription ? body.newDescription : filteredData.description,
+        }
+      }
+    ], function(err: any, records: any) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function(record: any) {
+        console.log(record.get('product_name'));
+      });
+    });
+
+    return res.json(body);
+  }
 }
