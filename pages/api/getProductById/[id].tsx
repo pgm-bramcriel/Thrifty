@@ -32,6 +32,7 @@ export default async function handler(
                 image: res.fields.image,
                 price: res.fields.price,
                 isHot: !!res.fields.isHot,
+                voteCount: res.fields.vote_count
             };
         });
 
