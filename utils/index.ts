@@ -1,1 +1,1 @@
-export const apiUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` || 'http://localhost:3000';
+export const apiUrl =process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000';
