@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color, fontSize } from "../../../styles/variables";
+import { color, fontSize, transition } from "../../../styles/variables";
 
 const ListItem = styled.li`
     width: 100%;
@@ -36,6 +36,16 @@ const DeleteButton = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
+    
+    svg {        
+        transition: ${transition.main};
+    }
+
+    &:hover {
+        svg {
+            color: ${color.mainRed};
+        }
+    }
 `;
 
 export {
