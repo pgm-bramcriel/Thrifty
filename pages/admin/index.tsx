@@ -6,12 +6,15 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import BaseLayout from '../../layouts/BaseLayout'
 import TextField from '../../components/TextField/TextField';
-import { FormAdd, FormContainer, FormUpdate } from '../../components/pageStyles/admin/style';
+import { FormAdd, FormContainer, FormUpdate, SelectStyle } from '../../components/pageStyles/admin/style';
 import { apiUrl } from '../../utils';
 import { TextFieldContainer } from '../../components/TextField/style';
 
-const Admin = () => {
+const Admin = ({ allProducts }: any) => {
+  const productList = allProducts;
+
   const [imgUrl, setImgUrl] = useState('');
+  const [updateId, setUpdateId] = useState('');
 
   const yupSchemaAdd = Yup.object({
     title: Yup.string()
@@ -26,14 +29,13 @@ const Admin = () => {
   });
 
   const yupSchemaUpdate = Yup.object({
-    itemId: Yup.string()
-      .required('Item id is required'),
     newTitle: Yup.string()
       .max(60, 'Title cannot be over 60 characters long.'),
     newPrice: Yup.number()
       .max(10000, 'Price cannot exceed 10,000.'),
     newDescription: Yup.string(),
     newImage: Yup.string(),
+    id: Yup.string()
   });
 
   const getImageUrl = async (img: any) => {
@@ -115,14 +117,13 @@ const Admin = () => {
             newPrice: '',
             newDescription: '',
             newImage: '',
-            itemId: '',
+            id: '',
           }}
           validationSchema={yupSchemaUpdate}
           onSubmit={(values: any, actions) => {
               const newTitle = values.newTitle;
               const newPrice = values.newPrice;
               const newDescription = values.newDescription;
-              const itemId = values.itemId;
 
               fetch(`${apiUrl}/api/allProducts`, {
                 method: 'PUT',
@@ -133,7 +134,7 @@ const Admin = () => {
                   'newTitle' : newTitle,
                   'newPrice' : newPrice,
                   'newDescription' : newDescription,
-                  'itemId' : itemId,
+                  'itemId' : updateId,
                   'newImage' : imgUrl
                 })
               })
@@ -144,7 +145,7 @@ const Admin = () => {
                   newPrice: '',
                   newDescription: '',
                   newImage: '',
-                  itemId: '',
+                  id: ''
                 }
               })
 
@@ -155,7 +156,18 @@ const Admin = () => {
             <FormUpdate>
               <h2>Update an item</h2>
               <Form>
-                <TextField label="Item ID *" name="itemId" type="text" />
+                <TextFieldContainer className="mb-2">
+                  <label htmlFor="id">Item *</label>
+                  <SelectStyle className="form-select" id="id" name="id" onChange={(e) => {setUpdateId(e.target.value)}}>
+                    {
+                      productList.map((product: any) => {
+                        return (
+                          <option key={product.id} value={product.id}>{product.productName}</option>
+                        )
+                      })
+                    }
+                  </SelectStyle>
+                </TextFieldContainer>
                 <TextField label="New title" name="newTitle" type="text" />
                 <TextField label="New price" name="newPrice" type="number" />
                 <TextField label="New description" name="newDescription" type="textarea" />
@@ -170,6 +182,17 @@ const Admin = () => {
       </FormContainer>
     </BaseLayout>
   )
+}
+
+export async function getServerSideProps() {
+  const allProductsRes = await fetch(`${apiUrl}/api/allProducts`);
+  const allProducts = await allProductsRes.json();
+
+  return {
+    props: {
+      allProducts,
+    }, // will be passed to the page component as props
+  }
 }
 
 export default Admin
