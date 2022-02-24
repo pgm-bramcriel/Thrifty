@@ -49,56 +49,6 @@ const Rating = (props: any) => {
     }
   }
 
-  /*
-  const handleUpvote = async () => {
-    if (!isUpvoted) {
-      setRating(rating + 1);
-      setIsUpvoted(true);
-      setIsDownvoted(false);
-
-      console.log(rating);
-
-      await fetch('http://localhost:3000/api/updateRating', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          'itemId': props.itemId,
-          'vote_count': rating + 1,
-        })
-      })
-    } else {
-      setRating(rating);
-    }
-  }
-  */
-
-  /*
-  const handleDownvote = async () => {
-    if (!isDownvoted) {
-      setRating(rating - 1);
-      setIsDownvoted(true);
-      setIsUpvoted(false);
-
-      console.log(rating);
-
-      await fetch('http://localhost:3000/api/updateRating', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          'itemId': props.id,
-          'vote_count': rating - 1,
-        })
-      })
-    } else {
-      setRating(rating);
-    }
-  }
-  */
-
   return (
     <RatingStyling>
       <Upvote onClick={handleUpvote}>
