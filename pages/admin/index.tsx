@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.css'
+
 
 import BaseLayout from '../../layouts/BaseLayout'
 import TextField from '../../components/TextField/TextField';
 import { FormAdd, FormContainer, FormUpdate } from '../../components/pageStyles/admin/style';
 
 const Admin = () => {
+  const [imgUrl, setImgUrl] = useState('');
+
   const yupSchemaAdd = Yup.object({
     title: Yup.string()
       .required('Title is required')
@@ -18,7 +21,6 @@ const Admin = () => {
     description: Yup.string()
       .required('Description is required'),
     image: Yup.mixed()
-      .required('Image is required'),
   });
 
   const yupSchemaUpdate = Yup.object({
@@ -32,6 +34,22 @@ const Admin = () => {
     newImage: Yup.string(),
   });
 
+  const getImageUrl = async (img: any) => {
+    const formData = new FormData();
+    formData.append("myFile", img);
+  
+    const x = await fetch(
+      "https://europe-west1-kopopeenkop.cloudfunctions.net/upload_image",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    
+    const xJson = await x.json();
+    setImgUrl(xJson.url);
+  };
+
   return (
     <BaseLayout>
       <FormContainer className="secondary-container">
@@ -43,7 +61,7 @@ const Admin = () => {
             image: ''
           }}
           validationSchema={yupSchemaAdd}
-          onSubmit={ (values, actions) => {
+          onSubmit={ async (values, actions) => {
             const title = values.title;
             const price = values.price;
             const description = values.description;
@@ -56,7 +74,8 @@ const Admin = () => {
               body: JSON.stringify({
                 'title' : title,
                 'price' : price,
-                'description' : description
+                'description' : description,
+                'image' : imgUrl
               })
             })
             
@@ -79,7 +98,9 @@ const Admin = () => {
                 <TextField label="Title *" name="title" type="text" />
                 <TextField label="Price *" name="price" type="number" />
                 <TextField label="Description *" name="description" type="textarea" />
-                <TextField label="Image *" name="image" type="file" />
+                <TextField label="Image *" name="image" type="file" onChange={(event: any) => {
+                  getImageUrl(event.currentTarget.files[0]);
+                }}/>
                 <button type="submit" className="btn btn-danger mt-3">Submit</button>
               </Form>
             </FormAdd>
