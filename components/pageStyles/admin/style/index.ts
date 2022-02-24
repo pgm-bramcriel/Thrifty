@@ -1,6 +1,6 @@
 import { width } from "@mui/system";
 import styled from "styled-components";
-import { media } from "../../../../styles/variables";
+import { media, shadow } from "../../../../styles/variables";
 
 const FormContainer = styled.div`
   display: flex;
@@ -25,9 +25,14 @@ const FormUpdate = styled.div`
     width: 45%;
   }
 `
+const SelectStyle = styled.select`
+  border: none;
+  box-shadow: ${shadow.main};
+`
 
 export {
   FormContainer,
   FormAdd,
-  FormUpdate
+  FormUpdate,
+  SelectStyle
 }
