@@ -15,11 +15,11 @@ const DetailImage = (props: any) => {
 
   const productTitle = props.productName.toString();
   const productPrice = Number(props.price);
-  const id = props.id.toString();
+  const productId = props.id.toString();
 
   return (
     <>
-    <MobileButtonContainer onClick={() => addItem({productTitle, productPrice, id})}>
+    <MobileButtonContainer onClick={() => addItem({productTitle, productPrice, productId})}>
         <MainButton content='Add to cart' />
     </MobileButtonContainer>
     <LeftContainer>

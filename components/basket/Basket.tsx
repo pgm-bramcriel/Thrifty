@@ -9,9 +9,10 @@ interface BasketProps {
 }
 
 export interface IBasketItem {
-    id: string;
+    id?: string;
     productTitle: string;
     productPrice: number;
+    productId?: string;
 }
 
 const Basket:React.FC<BasketProps> = (props) => {
