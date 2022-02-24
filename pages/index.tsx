@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 import HomepagePopular from '../components/homepagePopular/HomepagePopular'
 import HomepageAllProducts from '../components/homepageAllProducts/HomepageAllProducts'
 import { IProduct } from './api/popularProducts'
+import { apiUrl } from '../utils'
 
 type PropsType = {
   hotProducts: Array<IProduct>;
@@ -25,10 +26,10 @@ const Home: NextPage<PropsType> = (props: PropsType) => {
 }
 
 export async function getServerSideProps() {
-  const hotProductsRes = await fetch("http://localhost:3000/api/popularProducts");
+  const hotProductsRes = await fetch(`${apiUrl}/api/popularProducts`);
   const hotProducts = await hotProductsRes.json();
 
-  const allProductsRes = await fetch("http://localhost:3000/api/allProducts");
+  const allProductsRes = await fetch(`${apiUrl}/api/allProducts`);
   const allProducts = await allProductsRes.json();
 
   return {

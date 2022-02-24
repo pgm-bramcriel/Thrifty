@@ -42,7 +42,7 @@ export default async function handler(
                 "product_name": body.title,
                 "price": body.price,
                 "description": body.description,
-                "image": "https://storage.googleapis.com/koppen/54eee24b-8a51-4dd9-96ec-575dfe181b22.png",
+                "image": body.image,
                 "isHot": false,
                 "vote_count": 0
               }
