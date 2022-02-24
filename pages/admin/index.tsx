@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.css'
+import * as cookie from 'cookie';
 
 
 import BaseLayout from '../../layouts/BaseLayout'
@@ -184,7 +185,20 @@ const Admin = ({ allProducts }: any) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+  const cookieContext = context.req.headers.cookie;
+  const parsedCookies = cookie.parse(cookieContext || '');
+
+  if (parsedCookies.password !== process.env.PASSWORD) {
+    context.res.statusCode = 302;
+    context.res.setHeader('Location', '/login');
+    context.res.end();
+
+    return {
+      props: {}
+    }
+  }
+  
   const allProductsRes = await fetch(`${apiUrl}/api/allProducts`);
   const allProducts = await allProductsRes.json();
 
