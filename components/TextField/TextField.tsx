@@ -4,6 +4,7 @@ import { TextFieldStyle, TextFieldContainer } from './style';
 
 const TextField = ({label, ...props}: any) => {
   const [field, meta] = useField(props);
+
   return (
     <TextFieldContainer className="mb-2">
       <label htmlFor={field.name}>{label}</label>
