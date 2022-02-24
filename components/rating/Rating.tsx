@@ -21,7 +21,7 @@ const Rating = (props: any) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'itemId': props.id,
+          'itemId': props.itemId,
           'vote_count': rating,
         })
       })
@@ -34,7 +34,7 @@ const Rating = (props: any) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'itemId': props.id,
+          'itemId': props.itemId,
           'vote_count': rating,
         })
       })
