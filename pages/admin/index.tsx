@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.css'
 
-
 import BaseLayout from '../../layouts/BaseLayout'
 import TextField from '../../components/TextField/TextField';
 import { FormAdd, FormContainer, FormUpdate } from '../../components/pageStyles/admin/style';
-import { apiUrl } from '../../utils';
 
 const Admin = () => {
-  const [imgUrl, setImgUrl] = useState('');
-
   const yupSchemaAdd = Yup.object({
     title: Yup.string()
       .required('Title is required')
@@ -22,6 +18,7 @@ const Admin = () => {
     description: Yup.string()
       .required('Description is required'),
     image: Yup.mixed()
+      .required('Image is required'),
   });
 
   const yupSchemaUpdate = Yup.object({
@@ -35,22 +32,6 @@ const Admin = () => {
     newImage: Yup.string(),
   });
 
-  const getImageUrl = async (img: any) => {
-    const formData = new FormData();
-    formData.append("myFile", img);
-  
-    const x = await fetch(
-      "https://europe-west1-kopopeenkop.cloudfunctions.net/upload_image",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    
-    const xJson = await x.json();
-    setImgUrl(xJson.url);
-  };
-
   return (
     <BaseLayout>
       <FormContainer className="secondary-container">
@@ -62,12 +43,12 @@ const Admin = () => {
             image: ''
           }}
           validationSchema={yupSchemaAdd}
-          onSubmit={ async (values, actions) => {
+          onSubmit={ (values, actions) => {
             const title = values.title;
             const price = values.price;
             const description = values.description;
 
-            fetch(`${apiUrl}/api/allProducts`, {
+            fetch('http://localhost:3000/api/allProducts', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -75,8 +56,7 @@ const Admin = () => {
               body: JSON.stringify({
                 'title' : title,
                 'price' : price,
-                'description' : description,
-                'image' : imgUrl
+                'description' : description
               })
             })
             
@@ -99,9 +79,7 @@ const Admin = () => {
                 <TextField label="Title *" name="title" type="text" />
                 <TextField label="Price *" name="price" type="number" />
                 <TextField label="Description *" name="description" type="textarea" />
-                <TextField label="Image *" name="image" type="file" onChange={(event: any) => {
-                  getImageUrl(event.currentTarget.files[0]);
-                }}/>
+                <TextField label="Image *" name="image" type="file" />
                 <button type="submit" className="btn btn-danger mt-3">Submit</button>
               </Form>
             </FormAdd>
@@ -123,7 +101,7 @@ const Admin = () => {
               const newDescription = values.newDescription;
               const itemId = values.itemId;
 
-              fetch(`` ${apiUrl}/api/allProducts', {
+              fetch('http://localhost:3000/api/allProducts', {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',
