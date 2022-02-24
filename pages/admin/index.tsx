@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import BaseLayout from '../../layouts/BaseLayout'
 import TextField from '../../components/TextField/TextField';
 import { FormAdd, FormContainer, FormUpdate } from '../../components/pageStyles/admin/style';
+import { apiUrl } from '../../utils';
 
 const Admin = () => {
   const [imgUrl, setImgUrl] = useState('');
@@ -66,7 +67,7 @@ const Admin = () => {
             const price = values.price;
             const description = values.description;
 
-            fetch('http://localhost:3000/api/allProducts', {
+            fetch(`${apiUrl}/api/allProducts`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -122,7 +123,7 @@ const Admin = () => {
               const newDescription = values.newDescription;
               const itemId = values.itemId;
 
-              fetch('http://localhost:3000/api/allProducts', {
+              fetch(`${apiUrl}/api/allProducts`, {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',
