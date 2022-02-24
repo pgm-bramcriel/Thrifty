@@ -3,6 +3,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { RatingStyling, Upvote, Downvote } from './style'
+import { apiUrl } from '../../utils';
 
 const Rating = (props: any) => {
   const [rating, setRating] = useState(props.rating);
@@ -17,7 +18,7 @@ const Rating = (props: any) => {
 
       console.log(ratingMax);
 
-      await fetch('http://localhost:3000/api/updateRating', {
+      await fetch(`${apiUrl}/api/updateRating`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ const Rating = (props: any) => {
 
       console.log(ratingMax);
 
-      await fetch('http://localhost:3000/api/updateRating', {
+      await fetch(`${apiUrl}/api/updateRating`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
