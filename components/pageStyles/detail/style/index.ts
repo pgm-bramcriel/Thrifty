@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color, media } from "../../../styles/variables";
+import { color, media } from "../../../../styles/variables";
 
 const DetailContainer = styled.section`
 `

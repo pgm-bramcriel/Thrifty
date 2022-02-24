@@ -1,6 +1,6 @@
 import { width } from "@mui/system";
 import styled from "styled-components";
-import { media } from "../../../styles/variables";
+import { media } from "../../../../styles/variables";
 
 const FormContainer = styled.div`
   display: flex;

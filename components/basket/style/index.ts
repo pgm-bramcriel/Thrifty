@@ -7,13 +7,10 @@ const Container = styled.div`
     top: 4rem;
     display: flex;
     justify-content: flex-end;
-    padding-right: 2rem;
+    padding-right: 1.3rem;
+    padding-left: 1rem;
     right: 0;
     display: none;
-
-    @media (max-width: ${media.medium}) {
-        margin-right: 1rem;
-    }
 `;
 
 const ArrowAndContent = styled.div`

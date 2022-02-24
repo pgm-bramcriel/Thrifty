@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "../../../styles/variables";
+import { color, radius } from "../../../styles/variables";
 
 const NavStyle = styled.nav`
   color: black;
@@ -45,9 +45,33 @@ const NavRightContainer = styled.div`
   }
 `
 
+const ShoppingIconContainer = styled.div`
+  position: relative;
+`
+
+const ItemCounter = styled.div`
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #a34444;
+  border-radius: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -5px;
+  top: -4px;
+
+  span {
+    color: ${color.white};
+    font-family: 'Nunito';
+  }
+`
+
 export {
   NavStyle,
   NavInner,
   ShoppingButton,
-  NavRightContainer
+  NavRightContainer,
+  ItemCounter,
+  ShoppingIconContainer
 }
