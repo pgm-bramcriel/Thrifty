@@ -11,6 +11,7 @@ interface ICardProps {
     isHot: boolean;
     image: string;
     id: string;
+    votes: number;
 }
 
 const ItemCard: React.FC<ICardProps> = (props) => {
@@ -27,7 +28,7 @@ const ItemCard: React.FC<ICardProps> = (props) => {
                     }
                     <ContentContainer>
                         <LabelContainer>
-                            { props.isHot &&
+                            { props.votes > 10 &&
                                 <Label><WhatshotIcon></WhatshotIcon> Hot</Label>
                             }
                         </LabelContainer>

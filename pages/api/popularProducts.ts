@@ -7,6 +7,7 @@ export interface IProduct {
   description: string;
   image: string;
   isHot: boolean;
+  votes: number;
 };
 
 type response = {
@@ -24,7 +25,7 @@ export default async function handler(
     // Process a GET request
 
     const response = await base('Products').select({
-      filterByFormula: "{isHot}",
+      filterByFormula: "{vote_count} > 10",
       maxRecords: 4,
 
     }).all()
@@ -37,6 +38,7 @@ export default async function handler(
         image: res.fields.image,
         price: res.fields.price,
         isHot: !!res.fields.isHot,
+        votes: res.fields.vote_count,
       }
     });
 
