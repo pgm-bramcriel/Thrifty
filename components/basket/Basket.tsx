@@ -9,9 +9,10 @@ interface BasketProps {
 }
 
 export interface IBasketItem {
-    id: string;
+    id?: string;
     productTitle: string;
     productPrice: number;
+    productId?: string;
 }
 
 const Basket:React.FC<BasketProps> = (props) => {
@@ -27,7 +28,7 @@ const Basket:React.FC<BasketProps> = (props) => {
                     <BasketContainer>
                         <Background></Background>
                         <BasketContentcontainer>
-                            <BasketTitle>Basket</BasketTitle>
+                            <BasketTitle>Basket ({basket.length})</BasketTitle>
                             <BasketList>
                                 { basket.length !== 0 && 
                                     basket.map((item, index) => {

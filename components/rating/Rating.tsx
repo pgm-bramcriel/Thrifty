@@ -5,34 +5,54 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { RatingStyling, Upvote, Downvote } from './style'
 
 const Rating = (props: any) => {
-  const [ rating, setRating ] = useState(props.rating);
-  const [ isUpvoted, setIsUpvoted ] = useState(false);
-  const [ isDownvoted, setIsDownvoted ] = useState(false);
+  const [rating, setRating] = useState(props.rating);
+  const [isUpvoted, setIsUpvoted] = useState(false);
+  const [isDownvoted, setIsDownvoted] = useState(false);
+  const [ratingMin, setRatingMin] = useState(props.rating - 1);
+  const [ratingMax, setRatingMax] = useState(props.rating + 1);
 
-  const handleUpvote = () => {
-    if (!isUpvoted) {
+  const handleUpvote = async () => {
+    if(rating !== ratingMax) {
       setRating(rating + 1);
-      setIsUpvoted(true);
-      setIsDownvoted(false);
-    } else {
-      setRating(rating);
+
+      console.log(ratingMax);
+
+      await fetch('http://localhost:3000/api/updateRating', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'itemId': props.itemId,
+          'vote_count': rating + 1,
+        })
+      })
     }
   }
 
-  const handleDownvote = () => {
-    if (!isDownvoted) {
+  const handleDownvote = async () => {
+    if(rating !== ratingMin) {
       setRating(rating - 1);
-      setIsDownvoted(true);
-      setIsUpvoted(false);
-    } else {
-      setRating(rating);
+
+      console.log(ratingMax);
+
+      await fetch('http://localhost:3000/api/updateRating', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'itemId': props.itemId,
+          'vote_count': rating - 1,
+        })
+      })
     }
   }
 
   return (
     <RatingStyling>
       <Upvote onClick={handleUpvote}>
-        <KeyboardArrowUpIcon/>
+        <KeyboardArrowUpIcon />
       </Upvote>
       <span>{rating}</span>
       <Downvote onClick={handleDownvote}>

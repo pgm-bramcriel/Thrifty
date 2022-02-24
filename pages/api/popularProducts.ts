@@ -1,4 +1,3 @@
-import { ContactlessOutlined } from "@material-ui/icons";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export interface IProduct {
