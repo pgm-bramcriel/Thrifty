@@ -7,6 +7,7 @@ import DetailInfo from '../../components/detailInfo/DetailInfo';
 import BaseLayout from '../../layouts/BaseLayout';
 import { IProduct } from '../api/popularProducts';
 import { DetailContainer, Background, DetailInner } from '../../components/pageStyles/detail/style';
+import { apiUrl } from '../../utils';
 
 const Detail = (props: {product: any}) => {
   const detailProduct = props.product[0];
@@ -26,7 +27,7 @@ const Detail = (props: {product: any}) => {
 
 export async function getServerSideProps(context: any) {
   const { id } = context.params;
-  const getProductByIdRes = await fetch(`http://localhost:3000/api/getProductById/${id}`);
+  const getProductByIdRes = await fetch(`${apiUrl}/api/getProductById/${id}`);
   const product = await getProductByIdRes.json();
 
   console.log(product);
