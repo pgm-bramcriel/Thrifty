@@ -16,7 +16,7 @@ const DetailImage = (props: any) => {
         <Image src={props.image} alt='Product image' objectFit="cover" layout="fill"/>
       </DetailImageContainer>
       <BottomImage>
-        <Rating rating={props.rating}/>
+        <Rating rating={props.rating} prodictInfo={props.productId}/>
         <Carrousel />
       </BottomImage>
     </LeftContainer>
