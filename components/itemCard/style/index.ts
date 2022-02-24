@@ -66,6 +66,8 @@ const ProductInfoContainer = styled.div`
 `;
 
 const CardContainer = styled.div`
+    scroll-snap-align: center;
+    
     img {
         transition: ${transition.main};
     }
