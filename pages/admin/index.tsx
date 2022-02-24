@@ -123,7 +123,7 @@ const Admin = () => {
               const newDescription = values.newDescription;
               const itemId = values.itemId;
 
-              fetch(`${apiUrl}/api/allProducts`, {
+              fetch(`` ${apiUrl}/api/allProducts', {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',
