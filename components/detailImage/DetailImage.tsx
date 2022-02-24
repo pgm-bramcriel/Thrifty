@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import React from 'react'
 import { useStore } from '../../store/basketStore';
 import MainButton from '../button/MainButton';
@@ -7,6 +8,9 @@ import Rating from '../rating/Rating';
 import { DetailImageContainer, MobileButtonContainer, LeftContainer, BottomImage } from './style';
 
 const DetailImage = (props: any) => {
+  const router = useRouter();
+  const { id } = router.query;
+  const itemId = { id };
   const addItem = useStore(state => state.addItem);
 
   const productTitle = props.productName.toString();
@@ -23,7 +27,7 @@ const DetailImage = (props: any) => {
         <Image src={props.image} alt='Product image' objectFit="cover" layout="fill"/>
       </DetailImageContainer>
       <BottomImage>
-        <Rating rating={props.rating}/>
+        <Rating rating={props.rating} itemId={itemId.id}/>
         <Carrousel />
       </BottomImage>
     </LeftContainer>
