@@ -15,7 +15,7 @@ const DetailInfo = (props: any) => {
   return (
     <DetailInfoContainer>
       <DetailInfoInner>
-        <Title>{props.productName}</Title> 
+        <Title>{props.productName}</Title>
         <Price>€{props.price}</Price>
         <span>{props.description}</span>
         <DesktopButtonContainer onClick={() => addItem({productTitle, productPrice, id})}>

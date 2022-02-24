@@ -16,7 +16,7 @@ const Detail = (props: {product: any}) => {
       <Background />
       <DetailContainer className='main-container'>
         <DetailInner>
-          <DetailImage rating={detailProduct.voteCount} image={detailProduct.image}/>
+          <DetailImage rating={detailProduct.voteCount} image={detailProduct.image} description={detailProduct.description} price={detailProduct.price} productName={detailProduct.productName} id={detailProduct.id}/>
           <DetailInfo description={detailProduct.description} price={detailProduct.price} productName={detailProduct.productName} id={detailProduct.id}/>
         </DetailInner>
       </DetailContainer>
