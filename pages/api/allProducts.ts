@@ -43,7 +43,7 @@ export default async function handler(
               "product_name": body.title,
               "price": body.price,
               "description": body.description,
-              "image": body.image,
+              "image": body.image ? body.image : 'https://storage.googleapis.com/koppen/330db160-1c46-41c5-a40a-a54a212406d5.png',
               "isHot": false,
               "vote_count": 0
             }
@@ -93,6 +93,7 @@ export default async function handler(
             description: body.newDescription
               ? body.newDescription
               : filteredData.description,
+            image: body.newImage ? body.newImage : filteredData.image
           },
         },
       ],
