@@ -35,32 +35,30 @@ export default async function handler(
         return res.json(formatedData);
     }
     if (req.method === "POST") {
-        const body = req.body;
-        console.log(body);
-        base('Products').create([
-            {
-              "fields": {
-                "product_name": body.title,
-                "price": body.price,
-                "description": body.description,
-                "image": body.image,
-                "isHot": false,
-                "vote_count": 0
-              }
+      const body = req.body;
+      console.log(body);
+      base('Products').create([
+          {
+            "fields": {
+              "product_name": body.title,
+              "price": body.price,
+              "description": body.description,
+              "image": body.image,
+              "isHot": false,
+              "vote_count": 0
             }
-          ], function(err: any, records: any) {
-            if (err) {
-              console.error(err);
-              return;
-            }
-            records.forEach(function (record: any) {
-              console.log(record.getId());
-            });
-        });
-      }
-    );
+          }
+        ], function(err: any, records: any) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          records.forEach(function (record: any) {
+            console.log(record.getId());
+          });
+      });
 
-    return res.json(body);
+      return res.json(body);
   }
   if (req.method === "PUT") {
     const body = req.body;
