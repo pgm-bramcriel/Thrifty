@@ -189,21 +189,18 @@ export async function getServerSideProps(context: any) {
   const cookieContext = context.req.headers.cookie;
   const parsedCookies = cookie.parse(cookieContext || '');
 
-  const allProductsRes = await fetch(`${apiUrl}/api/allProducts`);
-  const allProducts = await allProductsRes.json();
-
   if (parsedCookies.password !== process.env.PASSWORD) {
     context.res.statusCode = 302;
     context.res.setHeader('Location', '/login');
     context.res.end();
 
     return {
-      props: {
-        allProducts
-      }
+      props: {}
     }
   }
   
+  const allProductsRes = await fetch(`${apiUrl}/api/allProducts`);
+  const allProducts = await allProductsRes.json();
 
   return {
     props: {
