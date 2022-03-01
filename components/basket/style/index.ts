@@ -63,6 +63,8 @@ const BasketList = styled.ul`
     width: 100%;
     padding: 0;
     margin: 0;
+    max-height: 25rem;
+    overflow: auto;
 `;
 
 const CheckoutContainer = styled.div`
