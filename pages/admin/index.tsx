@@ -10,9 +10,11 @@ import TextField from '../../components/TextField/TextField';
 import { FormAdd, FormContainer, FormUpdate, SelectStyle } from '../../components/pageStyles/admin/style';
 import { apiUrl } from '../../utils';
 import { TextFieldContainer } from '../../components/TextField/style';
+import { Router, useRouter } from 'next/router';
 
 const Admin = ({ allProducts }: any) => {
   const productList = allProducts;
+  const router = useRouter();
 
   const [imgUrl, setImgUrl] = useState('');
   const [updateId, setUpdateId] = useState('');
@@ -94,7 +96,9 @@ const Admin = ({ allProducts }: any) => {
               }
             })
 
-            alert('Your item is posted!');
+            router.push({
+              pathname: '/'
+            })
           }}
         >
           {formik => (
@@ -151,7 +155,9 @@ const Admin = ({ allProducts }: any) => {
                 }
               })
 
-              alert('Your item is updated!');
+              router.push({
+                pathname: '/'
+              })
           }}
         >
           {formik => (
